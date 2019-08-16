@@ -1,0 +1,335 @@
+
+{% import 'macros.html' as macro%}
+{% extends 'base.html'%}
+
+  {% block styles%}
+  {{ super() }}
+  <link href="https://fonts.googleapis.com/css?family=Advent+Pro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="animate.css">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/animate.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/hover.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="static/js/custom.js"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWTIlluowDL-X4HbYQt3aDw_oi2JP0Krc&sensor=false"></script>
+  <script src="static/js/map.js"></script>
+
+
+  {% endblock %}
+
+
+{% block content %}
+  
+  <div class="container-fluid">
+    
+ <h2  class=" animated zoomIn">
+      <a href="/"><img src="/static/images/y.jpg"  style="width: 200px;height: 100px;"></a>
+    </h2>
+    <img class="animated zoomIn" src="static/images/yeezy-black.png" alt="black yeezys">
+    
+
+  <h1 class="head3"><h2 style="text-align: center;font-family: 'Luckiest Guy', cursive; letter-spacing: 4px; font-size: 3.5em; font-weight: bolder">O<span style="color: crimson">U</span>R<span style="color: crimson">COLLECTION</span></h2></h1>
+
+         
+    <span class="border"></span>
+    <br><br><br>
+<div class="container">
+  <div class="row">
+  <div class="col-lg-4">
+      <img src="/static/images/nike.jpeg" id="slideimg1"/>
+      <p class="button-holder">NIKE</p>
+      </div>
+      <div class="col-lg-4">
+      <img src="/static/images/adidas.jpeg" id="slideimg2"/>
+      <p class="button-holder">ADIDAS</p>
+      </div>
+      <div class="col-lg-4">
+      <img src="/static/images/puma.png" id="slideimg3"/>
+      <p class="button-holder">PUMA</p>
+
+      </div>
+      </div> 
+</div>
+
+<!--------------------------------------------Personality--------------------------------- -->
+  <div id="Personality"class="container">
+
+<!-- LOGO -->
+
+    <div class="row justify-content-center">
+      <div class="col-md-2 top-margin-small">
+        <!-- <img src="/static/images/kingjosh.jpeg" alt="logo" style="margin-right: 1000px;"> -->
+      </div>
+    </div>
+
+<!-- First Step (Enter Name) -->
+
+    <div class="text-center" id="first-step">
+      <h1>MY-SHOES<br>Personality Customize</h1>
+      <p class="lead">Hi There! Let's start with your name.</p>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <form class="form-horizontal" role="form" id="nameForm">
+            <div class="form-group">
+              <input class="form-control" type="text" id="username" placeholder="Enter your name" required>
+            </div>
+            <input type="submit" class="btn btn-info btn-large" value="Submit"/>
+          </form>
+        </div>
+      </div>
+    </div>
+
+<!-- Second Step (Choose Color of Shoe Base) -->
+
+    <div class="text-center" id="second-step">
+      <span id="insertname"></span>
+      <br>
+      <p class="lead"><br> How would you describe yourself?</p>
+      <form class="" action="index.html" method="post" id="base-color-form">
+
+        <br>
+        <div class="row justify-content-center well">
+            <div class="col-md-2 radio">
+              <label>
+                <input type="radio" name="base-color" value="white" checked>
+                <br>Class
+              </label>
+            </div>
+            <div class="col-md-2 radio">
+              <label>
+                <input type="radio" name="base-color" value="blue" >
+                <br>Gentleman
+              </label>
+            </div>
+            <div class="col-md-2 radio">
+              <label>
+                <input type="radio" name="base-color" value="black" >
+                <br>Stealth
+              </label>
+            </div>
+            <div class="col-md-2 radio">
+              <label>
+                <input type="radio" name="base-color" value="red" >
+                <br>Passionate
+              </label>
+            </div>
+        </div>
+        <br><br>
+        <input type="submit" class="btn btn-info btn-large" value="Submit"/>
+      </form>
+    </div>
+
+<!-- Third Step (Show Shoe Selection) -->
+<div class="text-center" id="third-step">
+  <h1>You selected <span id="shoe-personality"></span>.</h1>
+  <br>
+  <p class="lead">Let's start with the base. How do you feel about a <span id="shoe-color-word"></span> shoe?</p>
+  <br><br>
+
+<!-- Four Shoe Color Options -->
+
+    <div id="white-shoe">
+      <img src="/static/img/shoes/white.png" alt="white-shoe" class="resize-shoe" >
+    </div>
+    <div id="blue-shoe">
+      <img src="/static/img/shoes/blue.png" alt="blue-shoe" class="resize-shoe" >
+    </div>
+    <div id="black-shoe">
+      <img src="/static/img/shoes/black.png" alt="black-shoe" class="resize-shoe" >
+    </div>
+    <div id="red-shoe">
+      <img src="/static/img/shoes/red.png" alt="red-shoe" class="resize-shoe" >
+    </div>
+  <br>
+
+<!-- Yes / No buttons -->
+
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <input class="btn btn-info btn-large" value="I Like It!" id="like-it"/>
+    </div>
+    <div class="col-md-3">
+      <input class="btn btn-danger btn-large" value="Try again" id="try-again"/>
+    </div>
+  </div>
+
+  </div>
+
+<!-- Fourth Step (Fine Tune Customization) -->
+
+    <div class="text-center" id="fourth-step">
+      <span id="fourth-step-h1"></span>
+      <p class="lead">I have just a few more questions for you.</p>
+      <form action="submit" method="post" id="final-customization">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="location">My favorite fruit is:</label>
+            <div class="selectWrapper">
+              <select id="fruit">
+                  <option value="red">Strawberry</option>
+                  <option value="orange">Oranges</option>
+                  <option value="yellow">Bananas</option>
+              </select>
+            </div>
+
+          </div>
+          <div class="col-md-3">
+            <label for="location">Come find me:</label>
+            <div class="selectWrapper">
+              <select id="location">
+                  <option value="black">Outdoors</option>
+                  <option value="white">Indoors</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="location">Besties:</label>
+            <div class="selectWrapper">
+              <select id="friends">
+                  <option value="white">Straightforward</option>
+                  <option value="pink">Fun and Bubbly</option>
+                  <option value="black and white">Exclusive</option>
+              </select>
+            </div>
+          </div>
+        <div class="col-md-3">
+          <label for="location">Deep down I am:</label>
+          <div class="selectWrapper">
+            <select id="deepdown">
+                <option value="white">Lighthearted</option>
+                <option value="black and white">Adaptable</option>
+                <option value="lime green">Unique</option>
+                <option value="red">Calm</option>
+            </select>
+          </div>
+        </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <input type="submit" class="btn btn-info btn-large" value="Submit!" id="submit-answers"/>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="text-center" id="fifth-step">
+      <h1>Here you go, <span id="final-user-name"></span>.</h1>
+      <p class="lead">This shoe would look great on you!</p>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card" style="width: 20rem;">
+            <span id="final-featured-shoe"></span>
+            <div class="card-block">
+              <h4 class="card-title"><span id="final-user-name-h4"></span>'s Custom Shoe</h4>
+              <p class="card-text">As you know, it will have a <span id="final-color"></span> color for the base.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-center">Your shoelaces will be &nbsp<span id="final-shoelaces"></span></li>
+              <li class="list-group-item text-center">Your webbings will be &nbsp<span id="final-webbings"></span></li>
+              <li class="list-group-item text-center">Your midsole will be &nbsp<span id="final-midsole"></span></li>
+              <li class="list-group-item text-center">Your outsole will be &nbsp<span id="final-outsole"></span></li>
+            </ul>
+            <div class="card-block">
+              <div class="row">
+                <div class="col-md-6">
+                  <a href="http://www.adidas.com/us/customize"><button class="btn btn-info btn-large">Purchase</a>
+                </div>
+                <div class="col-md-6">
+                  <button class="btn btn-danger btn-large" id="startover">Start Over</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+      <br><br>
+  </div>
+
+
+
+
+
+
+
+
+<div id="about" class="team-section">
+  <h1>Our Team</h1>
+  <span class="border"></span>
+  <div class="ps">
+    <a href="#p1"><img id="port1" src="/static/images/kingjosh.jpeg" alt=""></a>
+    <a href="#p2"><img id="port2" src="/static/images/yussuf.png" alt=""></a>
+    <a href="#p3"><img id="port3" src="/static/images/abdul.jpg" alt=""></a>
+    <a href="#p5"><img id="port5" src="/static/images/miano.jpg" alt=""></a>
+
+  </div>
+
+  <div class="section" id="p1">
+    <span class="name">King Josh</span>
+    <span class="border"></span>
+    <p>Scrum Master</p>
+  </div>
+
+    <div class="section" id="p2">
+      <span class="name">Yussuf</span>
+      <span class="border"></span>
+      <p>Front-end(Graphics and Design) </p>
+    </div>
+
+      <div class="section" id="p3">
+        <span class="name">John</span>
+        <span class="border"></span>
+        <p>Back-end(Graphics and Design)</p>
+      </div>
+
+      <div class="section" id="p5">
+        <span class="name">Ryan</span>
+        <span class="border"></span>
+        <p>Front-end(Graphics and Design)</p>
+      </div>
+
+</div>
+<section class="page-section spad contact-page">
+    <div class="container">
+      <div class="map" id="map-canvas"></div>
+</div>
+</section>
+<footer class="foot">
+  
+
+<div id="contact">
+<h1 class="head4">Contact</h1>
+<span class="border1"></span>
+<p class="para1">Feel free to follow our socials to keep up to date with us.</p>
+<div class="container">
+      <div class="row row1 justify-content-between">
+          <div class="col">
+            <img class="twitter" src="/static/images/social_icons/twitter.png">
+          </div>
+          <div class="col">
+            <img class="fb" src="/static/images/social_icons/facebook.png">
+          </div>
+          <div class="col">
+            <img class="pin" src="/static/images/social_icons/pinterest.png">
+          </div>
+          <div class="col">
+            <img class="ig" src="/static/images/social_icons/instagram.png">
+          </div>
+            <!-- load for map -->
+ 
+
+        </div>
+        </div>
+      </div>
+
+
+</footer>
+
+<div class="mapouter" style="margin-top: 100px; width: 100px;"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=kenya&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/best-wordpress-themes/">wordpress template</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+{% endblock%}

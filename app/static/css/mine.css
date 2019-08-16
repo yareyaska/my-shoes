@@ -1,0 +1,7 @@
+body{
+  background-color: blue;
+  background-image: url('/static/images/g.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+

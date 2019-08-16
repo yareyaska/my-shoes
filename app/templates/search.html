@@ -1,0 +1,87 @@
+
+<!-- {% extends 'index.html'%} -->
+{% import 'macros.html' as macro%}
+
+
+  {% block styles%}
+  {{ super() }}
+  <link href="https://fonts.googleapis.com/css?family=Advent+Pro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="animate.css">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/animate.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/hover.css')}}">s
+
+
+  {% endblock %}
+
+
+{% block content %}
+<h2 id="head1">
+  <a href="{{url_for('main.first')}}"><img src="/static/images/y.jpg" id="slideimg1"/ style="width: 200px;height: 100px;" class="hvr-grow"></a>
+</h2>
+<div class="container-fluid">
+	
+
+  <div class="row">
+    <div class="col-md-6">
+     <a href="{{url_for('main.first')}}"><img src="static/images/vapoor.png" style="width: 600px;height: 500px;" class="hvr-grow"></a>
+   </div>
+   <div class="col-md-6">
+
+    <a href="{{url_for('main.first')}}"> <img src="static/images/max3.jpg" style="width: 600px;height: 400px;margin-top: 50px;" class="hvr-grow"></a>
+
+  </div>
+  
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-6">
+   <a href="second.html"> <img src="static/images/b.jpg" style="width: 500px;height: 500px" class="hvr-grow"></a>
+ </div>
+ <div class="col-md-6">
+
+  <a href="second.html"> <img src="static/images/yuuu.jpg" style="width: 500px;height: 500px" class="hvr-grow"></a>
+
+</div>
+
+</div>
+
+
+
+<div class="opp">
+  <div class="row">
+    <div class="col-md-6">
+     <a href="third.html"> <img src="static/images/green.png" style="width: 80%;height: 80%;"class="hvr-grow"></a>
+   </div>
+   <div class="col-md-6">
+
+    <a href="third.html"> <img src="static/images/nike.png" style="width: 80%;height: 80%"class="hvr-grow"></a>
+
+  </div>
+  
+</div>
+</div>
+
+
+<div class="op">
+  <div class="row">
+    <div class="col-md-6">
+     <a href="fourth.html"> <img src="static/images/oo.jpg" style="width: 70%;height: 70%;"class="hvr-grow"></a>
+   </div>
+   <div class="col-md-6">
+
+    <a href="fourth.html"> <img src="static/images/n.jpg" style="width: 65%;height: 65%"class="hvr-grow"></a>
+
+  </div>
+  
+</div>
+</div>
+
+
+
+
+</div>
+{% endblock %}
